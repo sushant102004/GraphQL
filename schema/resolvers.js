@@ -24,6 +24,17 @@ const resolvers = {
             const { id } = args
             return MoviesList.find(movie => movie.id == id)
         }
+    },
+
+    Mutation: {
+        createUser : (parent, args) => {
+            const newUser = args.input
+            const id = UserList[UserList.length - 1].id + 1
+            newUser.id = id
+            console.log(newUser)
+            UserList.push(newUser)
+            return newUser
+        }
     }
 }
 
